@@ -13,5 +13,20 @@ defmodule ElixWeb.Api.UserController do
     render(conn, "user.json", user: user)
   end
 
+  def create(conn, args) do
+    case Accounts.create_user(args) do
+      {:error, changeset} ->
+        {
+          :error,
+          message: "Could not create account",
+          details: ChangesetErrors.error_details(changeset)
+        }
+
+      {:ok, user} ->
+        token = ElixWeb.AuthToken.sign(user)
+        render(conn, "signup.json", %{token: token, user: user})
+    end
+  end
+
 
 end

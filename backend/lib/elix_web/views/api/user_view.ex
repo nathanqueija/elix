@@ -12,4 +12,13 @@ defmodule ElixWeb.Api.UserView do
       username: user.username
     }
   end
+
+  def render("signup.json", %{user: user, token: token} ) do
+    %{
+      id: user.id,
+      email: user.email,
+      username: user.username,
+      token: token
+    }
+  end
 end

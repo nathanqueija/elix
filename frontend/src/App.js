@@ -7,6 +7,7 @@ import Search from "./pages/Search";
 import Place from "./pages/Place";
 import MyBookings from "./pages/MyBookings";
 import Signup from "./pages/Signup";
+import SignupRest from "./pages/SignupRest";
 import Signin from "./pages/Signin";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ class App extends Component {
               <Route path="/places/:slug" component={Place} />
               <Route path="/bookings" component={MyBookings} />
               <Route path="/sign-up" component={Signup} />
+              <Route path="/sign-up-rest" component={SignupRest} />
               <Route path="/sign-in" component={Signin} />
               <Route component={NotFound} />
             </Switch>

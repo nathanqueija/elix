@@ -15,8 +15,7 @@ defmodule ElixWeb.Router do
   scope "/", ElixWeb.Api do
     pipe_through :api
 
-    get "/users", UserController, :index
-    get "/users/:id", UserController, :show
+    resources "/users", UserController, only: [:index, :show, :create]
 
 
 
