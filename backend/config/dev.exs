@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :getaways, GetawaysWeb.Endpoint,
+config :elix, ElixWeb.Endpoint,
   http: [port: 4000],
   debug_errors: false,
   code_reloader: true,
@@ -56,9 +56,9 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
-config :getaways, Getaways.Repo,
+config :elix, Elix.Repo,
   username: "nathan",
   password: "postgres",
-  database: "getaways_dev",
+  database: "elix_dev",
   hostname: "localhost",
   pool_size: 10

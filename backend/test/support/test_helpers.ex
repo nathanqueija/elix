@@ -1,15 +1,15 @@
-defmodule Getaways.TestHelpers do
-  alias Getaways.Repo
+defmodule Elix.TestHelpers do
+  alias Elix.Repo
 
-  alias Getaways.Vacation.{Place, Booking, Review}
-  alias Getaways.Accounts.User
+  alias Elix.Vacation.{Place, Booking, Review}
+  alias Elix.Accounts.User
 
   def user(username) do
-    Getaways.Repo.get_by!(User, username: username)
+    Elix.Repo.get_by!(User, username: username)
   end
 
   def place(name) do
-    Getaways.Repo.get_by!(Place, name: name)
+    Elix.Repo.get_by!(Place, name: name)
   end
 
   def user_fixture(attrs \\ %{}) do

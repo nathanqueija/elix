@@ -1,4 +1,4 @@
-defmodule Getaways.Repo.Migrations.CreateReviews do
+defmodule Elix.Repo.Migrations.CreateReviews do
   use Ecto.Migration
 
   def change do

@@ -1,4 +1,4 @@
-# Getaways GraphQL API
+# Elix GraphQL API
 
 ## Installation
 
@@ -373,5 +373,5 @@ fragment TypeRef on __Type {
 This app was generated using:
 
 ~~~sh
-mix phx.new getaways --no-html
+mix phx.new elix --no-html
 ~~~

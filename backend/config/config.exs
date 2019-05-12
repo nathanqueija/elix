@@ -12,15 +12,15 @@ config :cors_plug,
   max_age: 86400,
   methods: ["GET", "POST"]
 
-config :getaways,
-  ecto_repos: [Getaways.Repo]
+config :elix,
+  ecto_repos: [Elix.Repo]
 
 # Configures the endpoint
-config :getaways, GetawaysWeb.Endpoint,
+config :elix, ElixWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "r/KECNh6PcQMEwqy78veF/hGvvy+MAiOa9fL2tbURvl4D4K3FZiF4p8zwesH9+dW",
-  render_errors: [view: GetawaysWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: Getaways.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: ElixWeb.ErrorView, accepts: ~w(json)],
+  pubsub: [name: Elix.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

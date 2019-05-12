@@ -1,8 +1,8 @@
-alias Getaways.Vacation.{Place, Booking, Review}
-alias Getaways.Accounts.User
+alias Elix.Vacation.{Place, Booking, Review}
+alias Elix.Accounts.User
 
-alias Getaways.Repo
-alias Getaways.Vacation
-alias Getaways.Accounts
+alias Elix.Repo
+alias Elix.Vacation
+alias Elix.Accounts
 
 import Ecto.Query
