@@ -57,7 +57,7 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
 config :elix, Elix.Repo,
-  username: "nathan",
+  username: "postgres",
   password: "postgres",
   database: "elix_dev",
   hostname: "localhost",
