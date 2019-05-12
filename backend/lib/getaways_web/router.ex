@@ -3,11 +3,35 @@ defmodule GetawaysWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+  end
+
+  pipeline :graphql do
+    plug :accepts, ["json"]
     plug GetawaysWeb.Plugs.SetCurrentUser
   end
 
-  scope "/" do
+
+   # REST api specifics
+  scope "/", GetawaysWeb.Api do
     pipe_through :api
+
+    get "/users", UserController, :index
+    get "/users/:id", UserController, :show
+
+
+
+
+    get "/", PlacesController, :index
+    get "/:slug", PlacesController, :place
+  end
+
+
+
+
+
+  # GRAPHQL specifics
+  scope "/graphql" do
+    pipe_through :graphql
 
     forward "/api", Absinthe.Plug,
       schema: GetawaysWeb.Schema.Schema

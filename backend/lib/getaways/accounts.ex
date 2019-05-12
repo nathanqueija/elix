@@ -8,12 +8,20 @@ defmodule Getaways.Accounts do
 
   alias Getaways.Accounts.User
 
+
+  @doc """
+  Returns the users
+  """
+  def get_users() do
+    Repo.all(User)
+  end
+
   @doc """
   Returns the user with the given `id`.
 
   Returns `nil` if the user does not exist.
   """
-  def get_user(id) do
+  def get_user!(id) do
     Repo.get(User, id)
   end
 

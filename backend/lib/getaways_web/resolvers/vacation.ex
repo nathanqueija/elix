@@ -10,12 +10,16 @@ defmodule GetawaysWeb.Resolvers.Vacation do
     {:ok, Vacation.get_place_by_slug!(slug)}
   end
 
+  def bookings_for_place(place,_,_) do
+    {:ok, Vacation.bookings_for_place(place)}
+  end
+
   def create_booking(_, args, %{context: %{current_user: user}}) do
     case Vacation.create_booking(user, args) do
       {:error, changeset} ->
         {
           :error,
-          message: "Could not create booking", 
+          message: "Could not create booking",
           details: ChangesetErrors.error_details(changeset)
         }
 
@@ -34,7 +38,7 @@ defmodule GetawaysWeb.Resolvers.Vacation do
         {:error, changeset} ->
           {
             :error,
-            message: "Could not cancel booking", 
+            message: "Could not cancel booking",
             details: ChangesetErrors.error_details(changeset)
           }
 
@@ -55,7 +59,7 @@ defmodule GetawaysWeb.Resolvers.Vacation do
       {:error, changeset} ->
         {
           :error,
-          message: "Could not create review", 
+          message: "Could not create review",
           details: ChangesetErrors.error_details(changeset)
         }
 

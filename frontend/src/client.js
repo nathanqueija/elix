@@ -1,35 +1,35 @@
-import { ApolloClient } from "apollo-client";
-import { ApolloLink } from "apollo-link";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { createHttpLink } from "apollo-link-http";
-import { setContext } from "apollo-link-context";
-import { hasSubscription } from "@jumpn/utils-graphql";
-import * as AbsintheSocket from "@absinthe/socket";
-import { createAbsintheSocketLink } from "@absinthe/socket-apollo-link";
-import { Socket as PhoenixSocket } from "phoenix";
+import { ApolloClient } from 'apollo-client';
+import { ApolloLink } from 'apollo-link';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { createHttpLink } from 'apollo-link-http';
+import { setContext } from 'apollo-link-context';
+import { hasSubscription } from '@jumpn/utils-graphql';
+import * as AbsintheSocket from '@absinthe/socket';
+import { createAbsintheSocketLink } from '@absinthe/socket-apollo-link';
+import { Socket as PhoenixSocket } from 'phoenix';
 
 // Create an HTTP link that fetches GraphQL results over an HTTP
 // connection from the Phoenix app's GraphQL API endpoint URL.
 const httpLink = createHttpLink({
-  uri: "http://localhost:4000/api/graphql"
+  uri: 'http://localhost:4000/graphql/api'
 });
 
 // Create a WebSocket link that sends GraphQL subscriptions over
 // a WebSocket. It connects to the Phoenix app's socket URL
 // so subscriptions flow through Phoenix channels.
 const absintheSocketLink = createAbsintheSocketLink(
-  AbsintheSocket.create(new PhoenixSocket("ws://localhost:4000/socket"))
+  AbsintheSocket.create(new PhoenixSocket('ws://localhost:4000/socket'))
 );
 
 // Create a link that sets the context of the GraphQL request.
 // If an authentication token exists in local storage, put
 // the token in the "Authorization" request header.
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("auth-token");
+  const token = localStorage.getItem('auth-token');
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : ""
+      authorization: token ? `Bearer ${token}` : ''
     }
   };
 });

@@ -135,7 +135,7 @@ defmodule GetawaysWeb.Schema.Schema do
   object :user do
     field :username, non_null(:string)
     field :email, non_null(:string)
-    field :bookings, list_of(:booking), 
+    field :bookings, list_of(:booking),
       resolve: dataloader(Vacation, :bookings, args: %{scope: :user})
   end
 
